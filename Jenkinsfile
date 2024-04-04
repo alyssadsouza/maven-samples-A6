@@ -1,6 +1,5 @@
 pipeline {
-	maven 'MVN'
-	jdk 'JDK 11'
+	agent any
 	stages {
 		stage('check out') {
 			steps {
@@ -15,5 +14,9 @@ pipeline {
 				sh "git bisect reset"
 			}
 		}
+	}
+	tools {
+		maven 'MVN'
+		jdk 'JDK 11'
 	}
 }
